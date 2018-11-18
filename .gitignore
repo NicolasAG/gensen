@@ -1,3 +1,4 @@
 *.pkl
 *.model
 data/embedding/glove.840B.300d.txt
+__pycache__/
