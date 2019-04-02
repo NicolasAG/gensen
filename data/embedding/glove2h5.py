@@ -5,7 +5,7 @@ import numpy as np
 print("grabbing glove vocab & vectors...")
 
 glove_vectors = [
-    line.decode('utf-8').strip().split() for line in open('glove.840B.300d.txt', 'r')
+    line.strip().split() for line in open('glove.840B.300d.txt', 'r', encoding='utf-8')
 ]
 
 vocab = [line[0] for line in glove_vectors]
