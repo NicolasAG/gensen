@@ -10,7 +10,7 @@ glove_vectors = [
 
 vocab = [line[0] for line in glove_vectors]
 vectors = np.array(
-    [[float(val) for val in line[1:]] for line in glove_vectors]
+    [[float(val) for val in line[1:]] for line in glove_vectors]  # TODO: fix error ValueError: could not convert string to float: '.'
 ).astype(np.float32)
 vocab = '\n'.join(vocab)
 
