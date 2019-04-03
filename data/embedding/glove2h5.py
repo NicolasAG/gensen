@@ -8,10 +8,21 @@ glove_vectors = [
     line.strip().split() for line in open('glove.840B.300d.txt', 'r', encoding='utf-8')
 ]
 
-vocab = [line[0] for line in glove_vectors]
+vocab = [''.join(line[:-300]) for line in glove_vectors]
 vectors = np.array(
-    [[float(val) for val in line[1:]] for line in glove_vectors]  # TODO: fix error ValueError: could not convert string to float: '.'
+    [[float(val) for val in line[-300:]] for line in glove_vectors]  # TOFIX: process returns ``31 Killed``
 ).astype(np.float32)
+'''
+vectors = []
+for line in glove_vectors:
+    try:
+        vectors.append([float(val) for val in line[1:]])
+        assert len(vectors[-1]) == 300, line
+    except ValueError as e:
+        print(e)
+        print(line)
+        raise e
+'''
 vocab = '\n'.join(vocab)
 
 print("creating h5py file...")
