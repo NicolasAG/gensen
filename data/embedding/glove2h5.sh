@@ -3,7 +3,7 @@
 if [[ ! -f "./glove.840B.300d.txt" ]]
 then
     echo "downloading glove zip file ..."
-    curl -LO 'http://nlp.stanford.edu/data/glove.840B.300d.zip'
+    # curl -LO 'http://nlp.stanford.edu/data/glove.840B.300d.zip'
     wget -q http://nlp.stanford.edu/data/glove.840B.300d.zip
     unzip glove.840B.300d.zip
     rm glove.840B.300d.zip
