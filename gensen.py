@@ -153,10 +153,16 @@ class GenSenSingle(nn.Module):
         self.task_word2id = self.word2id
         self.id2word = self.id2word
 
-        encoder_model = torch.load(os.path.join(
-            self.model_folder,
-            '%s.model' % self.filename_prefix
-        ))
+        if torch.cuda.is_available():
+            encoder_model = torch.load(os.path.join(
+                self.model_folder,
+                '%s.model' % self.filename_prefix
+            ))
+        else:
+            encoder_model = torch.load(os.path.join(
+                self.model_folder,
+                '%s.model' % self.filename_prefix
+            ), map_location='cpu')
 
         # Initialize encoders
         self.encoder = Encoder(
