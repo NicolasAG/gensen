@@ -10,9 +10,9 @@ then
     echo "done."
 fi
 
-if [[ ! -f "./glove.840B.300d.h5" ]]
-then
-    echo "processing glove embeddings ..."
-    python glove2h5.py
-    echo "done."
-fi
+#if [[ ! -f "./glove.840B.300d.h5" ]]
+#then
+#    echo "processing glove embeddings ..."
+#    python glove2h5.py
+#    echo "done."
+#fi
