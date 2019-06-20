@@ -123,7 +123,7 @@ class GenSen(nn.Module):
                 np.concatenate([x[1] for x in representations], axis=1)
         else:
             return torch.cat([x[0] for x in representations], 2), \
-                torch.cat([x[1] for x in rerepresentations], 1)
+                torch.cat([x[1] for x in representations], 1)
 
 
 class GenSenSingle(nn.Module):
