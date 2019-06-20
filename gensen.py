@@ -13,6 +13,10 @@ from torch.autograd import Variable
 from torch.nn.utils.rnn import pad_packed_sequence, pack_padded_sequence
 
 
+import logging
+logger = logging.getLogger(__name__)
+
+
 class Encoder(nn.Module):
     """GenSen Encoder."""
 
@@ -159,6 +163,7 @@ class GenSenSingle(nn.Module):
                 '%s.model' % self.filename_prefix
             ))
         else:
+            logger.warning("torch.cuda.is_available() is False, loading model on CPU...")
             encoder_model = torch.load(os.path.join(
                 self.model_folder,
                 '%s.model' % self.filename_prefix
